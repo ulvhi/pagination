@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: create users table
+      author: ulvi
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_users
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(35)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: VARCHAR(35)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: numeric(16, 2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: debt
+                  type: numeric(16, 2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(8)
+                  defaultValue: ACTIVE
+            tableName: users
